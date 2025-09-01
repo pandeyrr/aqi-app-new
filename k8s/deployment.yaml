@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aqi-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aqi-app
+  template:
+    metadata:
+      labels:
+        app: aqi-app
+    spec:
+      containers:
+        - name: aqi-app
+          image: pandeyrr/aqi-project:latest
+          ports:
+            - containerPort: 8080

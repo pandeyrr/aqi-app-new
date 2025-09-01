@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AQI Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 100vh; }
+        .legend { background: white; padding: 6px; line-height: 18px; }
+        .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    var map = L.map('map').setView([54.5, -3.0], 6);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data © OpenStreetMap contributors'
+        }).addTo(map);
+
+        function getColor(aqi) {
+            return aqi <= 50  ? 'green' :
+                   aqi <= 100 ? 'yellow' :
+                   aqi <= 150 ? 'orange' :
+                   aqi <= 200 ? 'red' :
+                                'purple';
+        }
+
+        fetch('/api/aqi')
+            .then(res => res.json())
+            .then(data => {
+                data.forEach(city => {
+                    L.circleMarker([city.latitude, city.longitude], {
+                        radius: 8,
+                        fillColor: getColor(city.aqi),
+                        color: '#000',
+                        weight: 1,
+                        opacity: 1,
+                        fillOpacity: 0.8
+                    }).bindPopup(`${city.city}<br>AQI: ${city.aqi}`).addTo(map);
+                });
+            });
+
+        var legend = L.control({position: 'bottomright'});
+        legend.onAdd = function (map) {
+            var div = L.DomUtil.create('div', 'legend');
+            var grades = [0, 50, 100, 150, 200];
+            var labels = ['Good', 'Moderate', 'Unhealthy for Sensitive', 'Unhealthy', 'Very Unhealthy'];
+
+            for (var i = 0; i < grades.length; i++) {
+                div.innerHTML +=
+                    `<i style="background:${getColor(grades[i] + 1)}"></i> ${labels[i]}<br>`;
+            }
+            return div;
+        };
+        legend.addTo(map);
+</script>
+</body>
+</html>
