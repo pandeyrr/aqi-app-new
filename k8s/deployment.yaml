@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: aqi-app-new
-          image: ghcr.io/<username>/<repo>:latest
+          image: ghcr.io/pandeyrr/aqi-app-new:latest
           ports:
             - containerPort: 8080
 
