@@ -41,7 +41,23 @@ public class AqiMapController {
                 new AqiMapData("Reading", 51.45, -0.97, 50),
                 new AqiMapData("Luton", 51.88, -0.42, 57),
                 new AqiMapData("Milton Keynes", 52.04, -0.76, 58),
-                new AqiMapData("York", 53.96, -1.08, 54)
+                new AqiMapData("York", 53.96, -1.08, 54),
+
+// Additional cities
+                new AqiMapData("Exeter", 50.72, -3.53, 48),
+                new AqiMapData("Norwich", 52.63, 1.30, 51),
+                new AqiMapData("Ipswich", 52.06, 1.15, 50),
+                new AqiMapData("Sunderland", 54.91, -1.38, 52),
+                new AqiMapData("Bradford", 53.79, -1.75, 55),
+                new AqiMapData("Wolverhampton", 52.58, -2.13, 57),
+                new AqiMapData("Coventry", 52.41, -1.51, 63),
+                new AqiMapData("Southend-on-Sea", 51.54, 0.71, 49),
+                new AqiMapData("Blackpool", 53.81, -3.05, 50),
+                new AqiMapData("Carlisle", 54.89, -2.94, 46),
+                new AqiMapData("Chelmsford", 51.73, 0.47, 52),
+                new AqiMapData("Worcester", 52.19, -2.22, 50),
+                new AqiMapData("Bath", 51.38, -2.36, 48),
+                new AqiMapData("Winchester", 51.06, -1.32, 47)
         );
 
     }
