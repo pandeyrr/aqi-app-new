@@ -55,9 +55,10 @@ public class AqiMapController {
                 new AqiMapData("Blackpool", 53.81, -3.05, 50),
                 new AqiMapData("Carlisle", 54.89, -2.94, 46),
                 new AqiMapData("Chelmsford", 51.73, 0.47, 52),
-                new AqiMapData("Worcester", 52.19, -2.22, 50),
+            new AqiMapData("Worcester", 52.19, -2.22, 50),
                 new AqiMapData("Bath", 51.38, -2.36, 48),
-                new AqiMapData("Winchester", 51.06, -1.32, 47)
+                new AqiMapData("Winchester", 51.06, -1.32, 47),
+                new AqiMapData("Stock", 51.06, -1.32, 47)
         );
 
     }
