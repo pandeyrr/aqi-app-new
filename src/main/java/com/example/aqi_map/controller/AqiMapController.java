@@ -41,7 +41,8 @@ public class AqiMapController {
                 new AqiMapData("Reading", 51.45, -0.97, 50),
                 new AqiMapData("Luton", 51.88, -0.42, 57),
                 new AqiMapData("Milton Keynes", 52.04, -0.76, 58),
-                new AqiMapData("York", 53.96, -1.08, 54)
+                new AqiMapData("York", 53.96, -1.08, 54),
+                new AqiMapData("Portree", 57.4126, -6.1960, 47)
 
         );
 
