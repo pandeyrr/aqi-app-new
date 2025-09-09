@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ===============================
-# Script to update aqi-app-new in Kubernetes locally
+# Script to update aqi-app-new in Kubernetes using latest Git commit SHA
 # ===============================
 
 # Stop immediately on errors
@@ -10,14 +10,22 @@ set -e
 # Optional: change local port if 8080 is in use
 LOCAL_PORT=8080
 
-# Docker image
-IMAGE="ghcr.io/pandeyrr/aqi-app-new:latest"
-
 # Deployment & service names
 DEPLOYMENT="aqi-app-new"
 SERVICE="aqi-app-new"
 
-echo "Pulling latest Docker image..."
+# GitHub Container Registry
+REGISTRY="ghcr.io/pandeyrr/aqi-app-new"
+
+# Get latest Git commit SHA (short version)
+COMMIT_SHA=$(git rev-parse --short HEAD)
+
+# Full image tag
+IMAGE="$REGISTRY:$COMMIT_SHA"
+
+echo "Using Docker image: $IMAGE"
+
+echo "Pulling latest image..."
 docker pull $IMAGE
 
 echo "Updating Kubernetes deployment..."
