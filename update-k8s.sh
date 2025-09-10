@@ -18,7 +18,7 @@ SERVICE="aqi-app-new"
 REGISTRY="ghcr.io/pandeyrr/aqi-app-new"
 
 # Get latest Git commit SHA (short version)
-COMMIT_SHA=$(git rev-parse --short HEAD)
+COMMIT_SHA=$(git rev-parse HEAD)
 
 # Full image tag
 IMAGE="$REGISTRY:$COMMIT_SHA"
