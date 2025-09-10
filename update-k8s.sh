@@ -17,8 +17,8 @@ SERVICE="aqi-app-new"
 # GitHub Container Registry
 REGISTRY="ghcr.io/pandeyrr/aqi-app-new"
 
-# Get latest Git commit SHA (short version)
-COMMIT_SHA=$(git rev-parse HEAD)
+# Get latest Git commit SHA
+COMMIT_SHA=$(git rev-parse HEAD)   # full SHA
 
 # Full image tag
 IMAGE="$REGISTRY:$COMMIT_SHA"
