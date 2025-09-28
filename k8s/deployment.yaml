@@ -17,4 +17,10 @@ spec:
           image: ghcr.io/pandeyrr/aqi-app-new:latest
           ports:
             - containerPort: 8080
-
+          volumeMounts:
+            - name: api-map-storage
+              mountPath: /app/data   # <--- where inside the container you want it
+      volumes:
+        - name: api-map-storage
+          persistentVolumeClaim:
+            claimName: api-map-pvc
